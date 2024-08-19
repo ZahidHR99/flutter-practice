@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_grid/responsive_grid.dart';
+import 'package:test_project/style.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,27 +24,31 @@ class HomeActivity extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var width = MediaQuery.of(context).size.width;
-    var height = MediaQuery.of(context).size.height;
-    var orientation = MediaQuery.of(context).orientation;
-
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Home"),
-        foregroundColor: Colors.white,
-        backgroundColor: Colors.blue,
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Width: ${width}'),
-            Text('Height: ${height}'),
-            Text('Width: ${orientation}'),
-          ],
+        appBar: AppBar(
+          title: Text("Home"),
+          foregroundColor: Colors.white,
+          backgroundColor: Colors.blue,
         ),
-      ),
-    );
+        body: ResponsiveGridRow(children: [
+          ResponsiveGridCol(
+            lg: 12,
+            child: Container(
+              height: 100,
+              color: Colors.orange,
+            ),
+          ),
+          ResponsiveGridCol(
+            xl: 4,
+            lg: 6,
+            md: 8,
+            sm: 9,
+            xs: 12,
+            child: Container(
+              height: 100,
+              color: Colors.green,
+            ),
+          ),
+        ]));
   }
 }

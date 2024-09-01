@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:responsive_grid/responsive_grid.dart';
 import 'package:test_project/style.dart';
 
 void main() {
@@ -12,43 +11,57 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        theme: ThemeData(primarySwatch: Colors.green),
-        darkTheme: ThemeData(primarySwatch: Colors.red),
-        debugShowCheckedModeBanner: false,
-        home: HomeActivity());
+      title: "Counter App",
+      home: MyHomePage(),
+    );
   }
 }
 
-class HomeActivity extends StatelessWidget {
-  HomeActivity({super.key});
+class MyHomePage extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return MyHomePageUI();
+  }
+}
+
+class MyHomePageUI extends State<MyHomePage> {
+  int countNumber = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Home"),
-          foregroundColor: Colors.white,
-          backgroundColor: Colors.blue,
+      appBar: AppBar(
+        title: Text('Add'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Text("Sum = 0"),
+            TextFormField(
+              decoration: AppInputStyle("First Number "),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            TextFormField(
+              decoration: AppInputStyle("Second Number "),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: double.infinity,
+              child: ElevatedButton(
+                style: AppButtonStyle(),
+                child: Text('Add'),
+                onPressed: () {},
+              ),
+            )
+          ],
         ),
-        body: ResponsiveGridRow(children: [
-          ResponsiveGridCol(
-            lg: 12,
-            child: Container(
-              height: 100,
-              color: Colors.orange,
-            ),
-          ),
-          ResponsiveGridCol(
-            xl: 4,
-            lg: 6,
-            md: 8,
-            sm: 9,
-            xs: 12,
-            child: Container(
-              height: 100,
-              color: Colors.green,
-            ),
-          ),
-        ]));
+      ),
+    );
   }
 }

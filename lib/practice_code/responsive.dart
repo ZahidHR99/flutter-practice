@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_grid/responsive_grid.dart';
-import 'package:test_project/style.dart';
+import 'package:test_project/practice_code/style.dart';
 
 void main() {
   runApp(const MyApp());

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_project/screen/onboarding/emailVerificationScreen.dart';
-import 'package:test_project/screen/onboarding/logginScreen.dart';
+import 'package:test_project/screen/onboarding/loginScreen.dart';
 import 'package:test_project/screen/onboarding/pinVerificationScreen.dart';
 import 'package:test_project/screen/onboarding/registrationScreen.dart';
 import 'package:test_project/screen/onboarding/setPasswordScreen.dart';

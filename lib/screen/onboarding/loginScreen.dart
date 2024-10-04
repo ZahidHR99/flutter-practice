@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:test_project/style/style.dart';
 
-class setPasswordScreen extends StatefulWidget {
-  const setPasswordScreen({super.key});
+class loginScreen extends StatefulWidget {
+  const loginScreen({super.key});
 
   @override
-  State<setPasswordScreen> createState() => _setPasswordScreenState();
+  State<loginScreen> createState() => _loginScreenState();
 }
 
-class _setPasswordScreenState extends State<setPasswordScreen> {
+class _loginScreenState extends State<loginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,24 +21,22 @@ class _setPasswordScreenState extends State<setPasswordScreen> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text("Set Password", style: Head1Text(colorDarkBlur)),
+              Text("Get Start With", style: Head1Text(colorDarkBlur)),
               SizedBox(height: 1),
-              Text(
-                  "Minimum length password 8 character with latter and number combination",
-                  style: Head6Text(colorLightGray)),
+              Text("Zahid HR", style: Head6Text(colorLightGray)),
               SizedBox(height: 20),
               TextFormField(
-                decoration: AppInputDecoration("Password"),
+                decoration: AppInputDecoration("Email Address"),
               ),
               SizedBox(height: 20),
               TextFormField(
-                decoration: AppInputDecoration("Confirm Password"),
+                decoration: AppInputDecoration("Pasword"),
               ),
               SizedBox(height: 20),
               Container(
                 child: ElevatedButton(
                   style: AppButtonStyle(),
-                  child: SuccessButtonChild('Confirm'),
+                  child: SuccessButtonChild('Login'),
                   onPressed: () {},
                 ),
               )

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 const colorRed = Color.fromRGBO(231, 28, 36, 1);
 const colorDark = Color.fromRGBO(136, 28, 32, 1);
@@ -54,4 +56,61 @@ DecoratedBox AppDropDownStyle(child) {
       child: child,
     ),
   );
+}
+
+SvgPicture ScreenBackground(context) {
+  return SvgPicture.asset(
+    'assets/image/background.svg',
+    alignment: Alignment.center,
+    width: MediaQuery.of(context).size.width,
+    height: MediaQuery.of(context).size.height,
+    fit: BoxFit.cover,
+  );
+}
+
+ButtonStyle AppButtonStyle() {
+  return ElevatedButton.styleFrom(
+      elevation: 1,
+      padding: EdgeInsets.zero,
+      backgroundColor: Colors.transparent,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)));
+}
+
+TextStyle ButtonTextStyle() {
+  return TextStyle(
+      fontSize: 14, fontFamily: 'poppins', fontWeight: FontWeight.w400);
+}
+
+Ink SuccessButtonChild(String ButtonText) {
+  return Ink(
+    decoration: BoxDecoration(
+        color: colorGreen, borderRadius: BorderRadius.circular(6)),
+    child: Container(
+      height: 45,
+      alignment: Alignment.center,
+      child: Text(ButtonText, style: ButtonTextStyle()),
+    ),
+  );
+}
+
+void SuccessToast(msg) {
+  Fluttertoast.showToast(
+      msg: msg,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      toastLength: Toast.LENGTH_SHORT,
+      backgroundColor: colorGreen,
+      textColor: colorWhite,
+      fontSize: 16.0);
+}
+
+void ErrorToast(msg) {
+  Fluttertoast.showToast(
+      msg: msg,
+      gravity: ToastGravity.BOTTOM,
+      timeInSecForIosWeb: 1,
+      toastLength: Toast.LENGTH_SHORT,
+      backgroundColor: colorRed,
+      textColor: colorWhite,
+      fontSize: 16.0);
 }
